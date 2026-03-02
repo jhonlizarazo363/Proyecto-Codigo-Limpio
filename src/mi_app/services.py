@@ -154,3 +154,50 @@ class AlquilerService:
             fecha_fin=None,
             activo=True,
         )
+         # Cambiar estado del vehículo
+        vehiculo.disponible = False
+
+        # Guardar cambios
+        self._alquiler_storage.guardar(alquiler)
+
+        return alquiler
+
+
+    def devolver_vehiculo(self, alquiler_id: int) -> Alquiler:
+        """
+        Finaliza un alquiler activo.
+
+        :raises ElementoNoEncontradoError:
+        :raises AlquilerYaFinalizadoError:
+        """
+
+        alquiler = self._alquiler_storage.obtener_por_id(alquiler_id)
+        if not alquiler:
+            raise ElementoNoEncontradoError("Alquiler no encontrado.")
+
+        if not alquiler.activo:
+            raise AlquilerYaFinalizadoError(
+                "El alquiler ya fue finalizado."
+            )
+
+        alquiler.fecha_fin = datetime.now()
+        alquiler.activo = False
+
+        # Volver disponible el vehículo
+        vehiculo = self._vehiculo_storage.obtener_por_id(
+            alquiler.vehiculo_id
+        )
+        if vehiculo:
+            vehiculo.disponible = True
+
+        return alquiler
+
+    # ------------------------------------------------------
+    # LISTAR ALQUILERES
+    # ------------------------------------------------------
+
+    def listar_alquileres(self) -> List[Alquiler]:
+        """
+        Retorna todos los alquileres registrados.
+        """
+        return self._alquiler_storage.obtener_todos()
