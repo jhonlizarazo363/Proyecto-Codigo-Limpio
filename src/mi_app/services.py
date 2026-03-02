@@ -93,3 +93,19 @@ class ClienteService:
         Retorna todos los clientes registrados.
         """
         return self._cliente_storage.obtener_todos()
+    
+
+class AlquilerService:
+    """
+    Contiene la lógica de negocio relacionada con los alquileres.
+    """
+
+    def __init__(
+        self,
+        alquiler_storage: AlquilerStorage,
+        cliente_storage: ClienteStorage,
+        vehiculo_storage: VehiculoStorage,
+    ) -> None:
+        self._alquiler_storage = alquiler_storage
+        self._cliente_storage = cliente_storage
+        self._vehiculo_storage = vehiculo_storage
