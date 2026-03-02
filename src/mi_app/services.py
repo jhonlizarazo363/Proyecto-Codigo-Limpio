@@ -54,3 +54,42 @@ class VehiculoService:
         Retorna todos los vehículos registrados.
         """
         return self._vehiculo_storage.obtener_todos()
+    
+
+class ClienteService:
+    """
+    Contiene la lógica de negocio relacionada con los clientes.
+    """
+
+    def __init__(self, cliente_storage: ClienteStorage) -> None:
+        self._cliente_storage = cliente_storage
+
+    def crear_cliente(
+        self,
+        nombre: str,
+        telefono: str,
+        email: str,
+    ) -> Cliente:
+        """
+        Registra un nuevo cliente activo.
+        """
+
+        clientes = self._cliente_storage.obtener_todos()
+        nuevo_id = len(clientes) + 1
+
+        cliente = Cliente(
+            id=nuevo_id,
+            nombre=nombre,
+            telefono=telefono,
+            email=email,
+            activo=True,
+        )
+
+        self._cliente_storage.guardar(cliente)
+        return cliente
+
+    def listar_clientes(self) -> List[Cliente]:
+        """
+        Retorna todos los clientes registrados.
+        """
+        return self._cliente_storage.obtener_todos()
