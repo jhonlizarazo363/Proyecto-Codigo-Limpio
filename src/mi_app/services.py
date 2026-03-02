@@ -21,7 +21,7 @@ class VehiculoService:
             nuevo_id,
             marca,
             modelo,
-            año,
+            anio,
             color,
             placa,
             True,
