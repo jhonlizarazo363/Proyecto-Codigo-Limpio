@@ -3,6 +3,7 @@ import pytest
 from pathlib import Path
 from datetime import datetime
 
+
 from mi_app.services import (
     VehiculoService,
     ClienteService,
@@ -11,15 +12,13 @@ from mi_app.services import (
 from mi_app.storage import (
     VehiculoStorage,
     ClienteStorage,
-    AlquilerStorage,
-)
+    AlquilerStorage,)
 from mi_app.exceptions import (
     ElementoNoEncontradoError,
     ClienteInactivoError,
     VehiculoNoDisponibleError,
     ClienteConAlquilerActivoError,
-    AlquilerYaFinalizadoError,
-)
+    AlquilerYaFinalizadoError,)
 
 
 @pytest.fixture
@@ -252,5 +251,8 @@ def test_devolver_alquiler_ya_finalizado(setup_database):
 
     with pytest.raises(AlquilerYaFinalizadoError):
         alq_service.devolver_vehiculo(alquiler.id)
+
+
+    
 
 

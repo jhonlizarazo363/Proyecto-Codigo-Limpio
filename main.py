@@ -1,10 +1,11 @@
 import typer
 from rich.console import Console
 from rich.table import Table
+from functools import wraps
 
-from mi_app.storage import VehiculoStorage, ClienteStorage, AlquilerStorage
-from mi_app.services import VehiculoService, ClienteService, AlquilerService
-from mi_app.exceptions import RentSystemException
+from src.mi_app.storage import VehiculoStorage, ClienteStorage, AlquilerStorage
+from src.mi_app.services import VehiculoService, ClienteService, AlquilerService
+from src.mi_app.exceptions import RentSystemException
 
 app = typer.Typer()
 console = Console()
@@ -18,7 +19,21 @@ alquiler_service = AlquilerService(
 )
 
 
+def handle_errors(func):
+    """Decorador para manejar errores de forma centralizada."""
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        try:
+            return func(*args, **kwargs)
+        except RentSystemException as e:
+            console.print(str(e), style="red")
+        except Exception as e:
+            console.print(f"Error inesperado: {str(e)}", style="red")
+    return wrapper
+
+
 @app.command()
+@handle_errors
 def crear_vehiculo(
     marca: str,
     modelo: str,
@@ -28,31 +43,27 @@ def crear_vehiculo(
     precio: float,
 ):
     """Crea un nuevo vehículo."""
-    try:
-        vehiculo = vehiculo_service.crear_vehiculo(
-            marca, modelo, año, color, placa, precio
-        )
-        console.print("Vehículo creado correctamente", style="green")
-        console.print(vehiculo)
-    except RentSystemException as e:
-        console.print(str(e), style="red")
+    vehiculo = vehiculo_service.crear_vehiculo(
+        marca, modelo, año, color, placa, precio
+    )
+    console.print("Vehículo creado correctamente", style="green")
+    console.print(vehiculo)
 
 
 @app.command()
+@handle_errors
 def crear_cliente(nombre: str, telefono: str, email: str):
     """Crea un nuevo cliente."""
-    try:
-        cliente = cliente_service.crear_cliente(nombre, telefono, email)
-        console.print("Cliente creado correctamente", style="green")
-        console.print(cliente)
-    except RentSystemException as e:
-        console.print(str(e), style="red")
+    cliente = cliente_service.crear_cliente(nombre, telefono, email)
+    console.print("Cliente creado correctamente", style="green")
+    console.print(cliente)
 
 
 @app.command()
+@handle_errors
 def listar_vehiculos():
     """Lista todos los vehículos."""
-    vehiculos = vehiculo_service.storage.obtener_todos()
+    vehiculos = vehiculo_service.listar_vehiculos()
 
     table = Table(title="Vehículos")
     table.add_column("ID")
@@ -72,24 +83,20 @@ def listar_vehiculos():
 
 
 @app.command()
+@handle_errors
 def alquilar(cliente_id: int, vehiculo_id: int):
     """Crea un alquiler."""
-    try:
-        alquiler = alquiler_service.crear_alquiler(cliente_id, vehiculo_id)
-        console.print("Alquiler creado correctamente", style="green")
-        console.print(alquiler)
-    except RentSystemException as e:
-        console.print(str(e), style="red")
+    alquiler = alquiler_service.crear_alquiler(cliente_id, vehiculo_id)
+    console.print("Alquiler creado correctamente", style="green")
+    console.print(alquiler)
 
 
 @app.command()
+@handle_errors
 def devolver(alquiler_id: int):
     """Devuelve un vehículo."""
-    try:
-        alquiler_service.devolver_vehiculo(alquiler_id)
-        console.print("Vehículo devuelto correctamente", style="green")
-    except RentSystemException as e:
-        console.print(str(e), style="red")
+    alquiler_service.devolver_vehiculo(alquiler_id)
+    console.print("Vehículo devuelto correctamente", style="green")
 
 
 if __name__ == "__main__":

@@ -1,17 +1,30 @@
 import json
 from pathlib import Path
 from typing import List
-from mi_app.models import Vehiculo, Cliente, Alquiler
+from src.mi_app.models import Vehiculo, Cliente, Alquiler
 
 DATABASE_PATH = Path("data/database.json")
 
 
 class BaseStorage:
     def _leer_db(self):
+        # Si el archivo no existe, lo crea con estructura básica
+        if not DATABASE_PATH.exists() or DATABASE_PATH.stat().st_size == 0:
+            # Estructura base: listas vacías para cada tipo de entidad
+            data = {
+                "vehiculos": [],
+                "clientes": [],
+                "alquileres": []
+            }
+            self._guardar_db(data)
+            return data
+        
         with open(DATABASE_PATH, "r") as f:
             return json.load(f)
 
     def _guardar_db(self, data):
+        # Asegurarse de que la carpeta "data" exista
+        DATABASE_PATH.parent.mkdir(parents=True, exist_ok=True)
         with open(DATABASE_PATH, "w") as f:
             json.dump(data, f, indent=4)
 

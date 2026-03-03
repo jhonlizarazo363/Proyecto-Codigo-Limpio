@@ -1,12 +1,13 @@
 from datetime import datetime
-from mi_app.models import Vehiculo, Cliente, Alquiler
-from mi_app.exceptions import (
+from src.mi_app.models import Vehiculo, Cliente, Alquiler
+from src.mi_app.exceptions import (
     ElementoNoEncontradoError,
     ClienteInactivoError,
     VehiculoNoDisponibleError,
     ClienteConAlquilerActivoError,
     AlquilerYaFinalizadoError,
 )
+
 
 
 class VehiculoService:
@@ -30,6 +31,9 @@ class VehiculoService:
 
         self.storage.guardar(vehiculo)
         return vehiculo
+    
+    def listar_vehiculos(self):
+        return self.storage.obtener_todos()
 
 
 

@@ -1,0 +1,51 @@
+{
+    "vehiculos": [
+        {
+            "id": 1,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Rojo",
+            "placa": "ABC123",
+            "disponible": true,
+            "precio_por_dia": 12.0
+        },
+        {
+            "id": 2,
+            "marca": "Mazda",
+            "modelo": "cx30",
+            "anio": 2025,
+            "color": "Rojo",
+            "placa": "ABC122",
+            "disponible": true,
+            "precio_por_dia": 2.0
+        }
+    ],
+    "clientes": [
+        {
+            "id": 1,
+            "nombre": "Juan",
+            "telefono": "123456",
+            "email": "juan@test.com",
+            "activo": true
+        }
+    ],
+    "alquileres": [
+        {
+            "id": 1,
+            "cliente_id": 1,
+            "vehiculo_id": 1,
+            "fecha_inicio": "2026-03-03T10:39:35.357318",
+            "fecha_fin": "2026-03-03T10:40:13.773880",
+            "activo": false
+        },
+        {
+            "id": 2,
+            "cliente_id": 1,
+            "vehiculo_id": 2,
+            "fecha_inicio": "2026-03-03T11:16:26.450248",
+            "fecha_fin": "2026-03-03T11:16:48.164264",
+            "activo": false
+        }
+    ]
+}
