@@ -7,6 +7,12 @@ dev = [
 name = "mi_app"
 version = "0.1.0"
 requires-python = ">=3.12"
+dependencies = [
+    "ruff>=0.15.4",
+]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 88
