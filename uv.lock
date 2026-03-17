@@ -173,6 +173,7 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "mkdocs" },
+    { name = "pytest" },
     { name = "ruff" },
     { name = "typer" },
 ]
@@ -185,6 +186,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "mkdocs", specifier = ">=1.6.1" },
+    { name = "pytest", specifier = ">=9.0.2" },
     { name = "ruff", specifier = ">=0.15.4" },
     { name = "typer", specifier = ">=0.24.1" },
 ]
