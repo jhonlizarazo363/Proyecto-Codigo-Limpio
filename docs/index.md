@@ -1,17 +1,46 @@
-# Welcome to MkDocs
+# Sistema de Alquiler de Vehículos
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+# Descripción
 
-## Commands
+Este proyecto implementa un sistema de gestión de alquiler de vehículos mediante una **interfaz de línea de comandos (CLI)**. Permite registrar clientes, vehículos y gestionar alquileres de forma sencilla.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+El sistema fue desarrollado aplicando principios de **código limpio**, separación de responsabilidades y buenas prácticas en Python.
 
-## Project layout
+---
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+# Características principales
+
+* Registro de clientes y vehículos
+* Gestión de alquileres
+* Persistencia de datos en archivos JSON
+* Validaciones en modelos
+* Arquitectura modular por capas
+
+---
+
+# Arquitectura del sistema
+
+El sistema está dividido en tres capas principales:
+
+* **CLI** → Interacción con el usuario
+* **Servicios** → Lógica del negocio
+* **Storage** → Manejo de datos
+
+mermaid
+flowchart LR
+CLI --> Service
+Service --> Storage
+Storage --> JSON
+
+
+---
+
+# Objetivo del proyecto
+
+Aplicar buenas prácticas de desarrollo como:
+
+* Código limpio
+* Uso de dataclasses
+* Validaciones automáticas
+* Separación de capas
+
