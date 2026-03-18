@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#comandos" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -338,6 +343,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -467,6 +474,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -483,9 +492,21 @@
 
 
 
-  <h1>Comandos</h1>
-
-
+<h1 id="comandos">Comandos</h1>
+<h1 id="crear-usuario">Crear usuario</h1>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>create-user<span class="w"> </span>--name<span class="w"> </span><span class="s2">&quot;Juan&quot;</span><span class="w"> </span>--email<span class="w"> </span><span class="s2">&quot;juan@email.com&quot;</span>
+</code></pre></div>
+<p>Permite registrar un nuevo usuario en el sistema.</p>
+<hr />
+<h1 id="listar-usuarios">Listar usuarios</h1>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>list-users
+</code></pre></div>
+<p>Muestra todos los usuarios registrados.</p>
+<hr />
+<h1 id="eliminar-usuario">Eliminar usuario</h1>
+<div class="highlight"><pre><span></span><code>uv<span class="w"> </span>run<span class="w"> </span>main.py<span class="w"> </span>delete-user<span class="w"> </span>--id<span class="w"> </span><span class="m">1</span>
+</code></pre></div>
+<p>Elimina un usuario por su ID.</p>
 
 
 

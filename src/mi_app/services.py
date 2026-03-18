@@ -8,7 +8,9 @@ from src.mi_app.exceptions import (
     AlquilerYaFinalizadoError,
 )
 
-
+# ==========================================================
+# VEHICULO SERVICE
+# ==========================================================
 
 class VehiculoService:
     def __init__(self, storage):
@@ -36,6 +38,10 @@ class VehiculoService:
         return self.storage.obtener_todos()
 
 
+# ==========================================================
+# CLIENTE SERVICE
+# ==========================================================
+
 
 class ClienteService:
     def __init__(self, storage):
@@ -57,12 +63,23 @@ class ClienteService:
         return cliente
 
 
+# ==========================================================
+# ALQUILER SERVICE
+# ==========================================================
+
+
 
 class AlquilerService:
     def __init__(self, alquiler_storage, cliente_storage, vehiculo_storage):
         self.alquiler_storage = alquiler_storage
         self.cliente_storage = cliente_storage
         self.vehiculo_storage = vehiculo_storage
+
+
+ # ------------------------------------------------------
+    # CREAR ALQUILER
+    # ------------------------------------------------------
+
 
     def crear_alquiler(self, cliente_id, vehiculo_id):
         clientes = self.cliente_storage.obtener_todos()
@@ -111,6 +128,12 @@ class AlquilerService:
 
         return alquiler
 
+
+ # ------------------------------------------------------
+    # DEVOLVER VEHÍCULO
+    # ------------------------------------------------------
+
+    
     def devolver_vehiculo(self, alquiler_id):
         alquileres = self.alquiler_storage.obtener_todos()
 

@@ -29,6 +29,10 @@ class BaseStorage:
             json.dump(data, f, indent=4)
 
 
+# ==============================
+# Vehiculo Storage
+# ==============================
+
 class VehiculoStorage(BaseStorage):
     def obtener_todos(self) -> List[Vehiculo]:
         data = self._leer_db()
@@ -48,6 +52,11 @@ class VehiculoStorage(BaseStorage):
         self._guardar_db(data)
 
 
+# ==============================
+# Cliente Storage
+# ==============================
+
+
 class ClienteStorage(BaseStorage):
     def obtener_todos(self) -> List[Cliente]:
         data = self._leer_db()
@@ -65,6 +74,11 @@ class ClienteStorage(BaseStorage):
                 data["clientes"][i] = cliente.__dict__
                 break
         self._guardar_db(data)
+
+
+# ==============================
+# Alquiler Storage
+# ==============================
 
 
 class AlquilerStorage(BaseStorage):

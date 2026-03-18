@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#welcome-to-mkdocs" class="md-skip">
+        <a href="#sistema-de-alquiler-de-vehiculos" class="md-skip">
           Skip to content
         </a>
       
@@ -241,24 +241,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Inicio
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -275,47 +257,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project layout
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -532,36 +473,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#commands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Commands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#project-layout" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Project layout
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -577,21 +488,41 @@
 
 
 
-<h1 id="welcome-to-mkdocs">Welcome to MkDocs</h1>
-<p>For full documentation visit <a href="https://www.mkdocs.org">mkdocs.org</a>.</p>
-<h2 id="commands">Commands</h2>
+<h1 id="sistema-de-alquiler-de-vehiculos">Sistema de Alquiler de Vehículos</h1>
+<h1 id="descripcion">Descripción</h1>
+<p>Este proyecto implementa un sistema de gestión de alquiler de vehículos mediante una <strong>interfaz de línea de comandos (CLI)</strong>. Permite registrar clientes, vehículos y gestionar alquileres de forma sencilla.</p>
+<p>El sistema fue desarrollado aplicando principios de <strong>código limpio</strong>, separación de responsabilidades y buenas prácticas en Python.</p>
+<hr />
+<h1 id="caracteristicas-principales">Características principales</h1>
 <ul>
-<li><code>mkdocs new [dir-name]</code> - Create a new project.</li>
-<li><code>mkdocs serve</code> - Start the live-reloading docs server.</li>
-<li><code>mkdocs build</code> - Build the documentation site.</li>
-<li><code>mkdocs -h</code> - Print help message and exit.</li>
+<li>Registro de clientes y vehículos</li>
+<li>Gestión de alquileres</li>
+<li>Persistencia de datos en archivos JSON</li>
+<li>Validaciones en modelos</li>
+<li>Arquitectura modular por capas</li>
 </ul>
-<h2 id="project-layout">Project layout</h2>
-<pre><code>mkdocs.yml    # The configuration file.
-docs/
-    index.md  # The documentation homepage.
-    ...       # Other markdown pages, images and other files.
-</code></pre>
+<hr />
+<h1 id="arquitectura-del-sistema">Arquitectura del sistema</h1>
+<p>El sistema está dividido en tres capas principales:</p>
+<ul>
+<li><strong>CLI</strong> → Interacción con el usuario</li>
+<li><strong>Servicios</strong> → Lógica del negocio</li>
+<li><strong>Storage</strong> → Manejo de datos</li>
+</ul>
+<p>mermaid
+flowchart LR
+CLI --&gt; Service
+Service --&gt; Storage
+Storage --&gt; JSON</p>
+<hr />
+<h1 id="objetivo-del-proyecto">Objetivo del proyecto</h1>
+<p>Aplicar buenas prácticas de desarrollo como:</p>
+<ul>
+<li>Código limpio</li>
+<li>Uso de dataclasses</li>
+<li>Validaciones automáticas</li>
+<li>Separación de capas</li>
+</ul>
 
 
 

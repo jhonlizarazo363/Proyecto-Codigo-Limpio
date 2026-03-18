@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#arquitectura-del-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -399,6 +404,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -465,6 +472,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -481,9 +490,37 @@
 
 
 
-  <h1>Arquitectura</h1>
-
-
+<h1 id="arquitectura-del-sistema">Arquitectura del Sistema</h1>
+<h1 id="estructura-del-proyecto">Estructura del proyecto</h1>
+<div class="highlight"><pre><span></span><code>src/
+ ├── app/
+ │   ├── models/
+ │   ├── services/
+ │   └── storage/
+</code></pre></div>
+<hr />
+<h1 id="principios-aplicados">Principios aplicados</h1>
+<ul>
+<li>Separación de responsabilidades</li>
+<li>Código limpio</li>
+<li>Funciones pequeñas</li>
+<li>Nombres descriptivos</li>
+</ul>
+<hr />
+<h1 id="decisiones-de-diseno">Decisiones de diseño</h1>
+<ul>
+<li>Uso de <code>dataclasses</code> para los modelos</li>
+<li>Persistencia en JSON</li>
+<li>CLI como interfaz principal</li>
+</ul>
+<hr />
+<h1 id="flujo-del-sistema">Flujo del sistema</h1>
+<div class="highlight"><pre><span></span><code>flowchart LR
+CLI --&gt; Service
+Service --&gt; Storage
+Storage --&gt; JSON
+</code></pre></div>
+<hr />
 
 
 
