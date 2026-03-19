@@ -19,6 +19,86 @@
             "placa": "ABC122",
             "disponible": true,
             "precio_por_dia": 2.0
+        },
+        {
+            "id": 3,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Blanco",
+            "placa": "ABC123",
+            "disponible": true,
+            "precio_por_dia": 100.0
+        },
+        {
+            "id": 4,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Rojo",
+            "placa": "XYZ123",
+            "disponible": false,
+            "precio_por_dia": 120
+        },
+        {
+            "id": 5,
+            "marca": "Mazda",
+            "modelo": "3",
+            "anio": 2022,
+            "color": "Negro",
+            "placa": "AAA111",
+            "disponible": true,
+            "precio_por_dia": 150
+        },
+        {
+            "id": 6,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Azul",
+            "placa": "BBB222",
+            "disponible": false,
+            "precio_por_dia": 100
+        },
+        {
+            "id": 7,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Rojo",
+            "placa": "CCC333",
+            "disponible": false,
+            "precio_por_dia": 100
+        },
+        {
+            "id": 8,
+            "marca": "Mazda",
+            "modelo": "3",
+            "anio": 2022,
+            "color": "Negro",
+            "placa": "DDD444",
+            "disponible": true,
+            "precio_por_dia": 150
+        },
+        {
+            "id": 9,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Rojo",
+            "placa": "EEE555",
+            "disponible": true,
+            "precio_por_dia": 100
+        },
+        {
+            "id": 10,
+            "marca": "Toyota",
+            "modelo": "Corolla",
+            "anio": 2020,
+            "color": "Rojo",
+            "placa": "FFF666",
+            "disponible": true,
+            "precio_por_dia": 100
         }
     ],
     "clientes": [
@@ -26,6 +106,55 @@
             "id": 1,
             "nombre": "Juan",
             "telefono": "123456",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 2,
+            "nombre": "Juan",
+            "telefono": "123456",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 3,
+            "nombre": "Juan",
+            "telefono": "123",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 4,
+            "nombre": "Juan",
+            "telefono": "123",
+            "email": "juan@test.com",
+            "activo": false
+        },
+        {
+            "id": 5,
+            "nombre": "Juan",
+            "telefono": "123",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 6,
+            "nombre": "Juan",
+            "telefono": "123",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 7,
+            "nombre": "Juan",
+            "telefono": "123",
+            "email": "juan@test.com",
+            "activo": true
+        },
+        {
+            "id": 8,
+            "nombre": "Juan",
+            "telefono": "123",
             "email": "juan@test.com",
             "activo": true
         }
@@ -45,6 +174,38 @@
             "vehiculo_id": 2,
             "fecha_inicio": "2026-03-03T11:16:26.450248",
             "fecha_fin": "2026-03-03T11:16:48.164264",
+            "activo": false
+        },
+        {
+            "id": 3,
+            "cliente_id": 3,
+            "vehiculo_id": 4,
+            "fecha_inicio": "2026-03-19T00:08:27.377005",
+            "fecha_fin": null,
+            "activo": true
+        },
+        {
+            "id": 4,
+            "cliente_id": 6,
+            "vehiculo_id": 7,
+            "fecha_inicio": "2026-03-19T00:08:27.407233",
+            "fecha_fin": null,
+            "activo": true
+        },
+        {
+            "id": 5,
+            "cliente_id": 7,
+            "vehiculo_id": 9,
+            "fecha_inicio": "2026-03-19T00:08:27.416951",
+            "fecha_fin": "2026-03-19T00:08:27.418738",
+            "activo": false
+        },
+        {
+            "id": 6,
+            "cliente_id": 8,
+            "vehiculo_id": 10,
+            "fecha_inicio": "2026-03-19T00:08:27.426571",
+            "fecha_fin": "2026-03-19T00:08:27.428545",
             "activo": false
         }
     ]

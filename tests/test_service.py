@@ -4,16 +4,16 @@ from pathlib import Path
 from datetime import datetime
 
 
-from mi_app.services import (
+from src.mi_app.services import (
     VehiculoService,
     ClienteService,
     AlquilerService,
 )
-from mi_app.storage import (
+from src.mi_app.storage import (
     VehiculoStorage,
     ClienteStorage,
     AlquilerStorage,)
-from mi_app.exceptions import (
+from src.mi_app.exceptions import (
     ElementoNoEncontradoError,
     ClienteInactivoError,
     VehiculoNoDisponibleError,
@@ -35,7 +35,9 @@ def setup_database(tmp_path):
         json.dump(initial_data, f)
 
     # parcheamos la ruta global
-    from mi_app import storage
+    # Note: los servicios importan el módulo desde `src.mi_app`, así que aquí debemos
+    # patchar el mismo módulo para que use la base de datos temporal.
+    from src.mi_app import storage
 
     storage.DATABASE_PATH = db_path
 
@@ -98,13 +100,11 @@ def test_crear_alquiler_exitoso(setup_database):
 
 def test_cliente_no_existe(setup_database):
     alq_service = AlquilerService(
-        AlquilerStorage(),
-        ClienteStorage(),
-        VehiculoStorage(),
+        AlquilerStorage(),ClienteStorage(),VehiculoStorage()
     )
 
     with pytest.raises(ElementoNoEncontradoError):
-        alq_service.crear_alquiler(1, 1)
+        alq_service.crear_alquiler(999, 999)
 
 
 def test_cliente_inactivo(setup_database):
@@ -122,7 +122,7 @@ def test_cliente_inactivo(setup_database):
         "Juan", "123", "juan@test.com"
     )
 
-    # lo desactivamos manualmente
+    # Desactivamos y guardamos correctamente
     cliente.activo = False
     cli_storage.actualizar(cliente)
 
@@ -137,12 +137,12 @@ def test_cliente_inactivo(setup_database):
 
 
 def test_vehiculo_no_disponible(setup_database):
-    veh_storage = VehiculoStorage()
     cli_storage = ClienteStorage()
+    veh_storage = VehiculoStorage()
     alq_storage = AlquilerStorage()
 
-    veh_service = VehiculoService(veh_storage)
     cli_service = ClienteService(cli_storage)
+    veh_service = VehiculoService(veh_storage)
     alq_service = AlquilerService(
         alq_storage, cli_storage, veh_storage
     )
