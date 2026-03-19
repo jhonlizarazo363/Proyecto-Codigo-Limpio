@@ -75,6 +75,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#persistencia-de-datos" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -366,6 +371,8 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
         
@@ -467,6 +474,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -483,9 +492,33 @@
 
 
 
-  <h1>Persistencia</h1>
-
-
+<h1 id="persistencia-de-datos">Persistencia de Datos</h1>
+<p>El sistema utiliza archivos <strong>JSON</strong> para almacenar la información.</p>
+<hr />
+<h1 id="estructura-de-datos">Estructura de datos</h1>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Juan&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;juan@email.com&quot;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<hr />
+<h1 id="funcionamiento">Funcionamiento</h1>
+<ul>
+<li>Los datos se guardan en archivos JSON</li>
+<li>Se convierten desde objetos Python (dataclasses)</li>
+<li>Se cargan al iniciar el sistema</li>
+</ul>
+<hr />
+<h1 id="ventajas">Ventajas</h1>
+<ul>
+<li>Fácil de implementar</li>
+<li>Legible</li>
+<li>No requiere base de datos externa</li>
+</ul>
+<hr />
 
 
 
