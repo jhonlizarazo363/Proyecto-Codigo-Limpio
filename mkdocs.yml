@@ -1,4 +1,5 @@
 site_name: Sistema De Alquiler De Vehiculos
+ HEAD
 
 theme:
   name: material
@@ -31,6 +32,18 @@ plugins:
       handlers:
         python:
           paths: ["src"]
+
+
+theme:
+  name: material
+
+nav:
+  - Inicio: index.md
+  - Base de Datos: database.md
+
+plugins:
+  - search
+ 102fd57 (Entrega 3)
 
 markdown_extensions:
   - admonition
