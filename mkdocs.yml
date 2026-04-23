@@ -1,38 +1,4 @@
 site_name: Sistema De Alquiler De Vehiculos
- HEAD
-
-theme:
-  name: material
-  palette:
-    - scheme: default
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-
-nav:
-  - Inicio: index.md
-  - Getting Started: getting-started.md
-  - Guía de Usuario:
-      - Comandos: user-guide/commands.md
-      - Persistencia: user-guide/persistence.md
-  - Arquitectura: architecture.md
-  - Referencia: reference.md
-
-plugins:
-  - search
-  - mkdocstrings:
-      handlers:
-        python:
-          paths: ["src"]
-
 
 theme:
   name: material
@@ -43,7 +9,6 @@ nav:
 
 plugins:
   - search
- 102fd57 (Entrega 3)
 
 markdown_extensions:
   - admonition
